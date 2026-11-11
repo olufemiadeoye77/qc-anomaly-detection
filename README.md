@@ -25,3 +25,14 @@ a capstone on secure AI architecture for industrial operations.
 - Tune contamination parameter and feature set
 - Package as a reusable, importable module
 - Add a simple reporting/alerting layer
+
+## Key Finding: Borderline Anomaly Detection
+
+Sample S0052 was consistently missed across multiple evaluation runs.
+Investigation showed it sits at a moderate deviation (z-scores of 2.44
+and 2.54 on FFA% and peroxide value) — elevated but less extreme than
+other injected anomalies (e.g. S0209 at z-scores >4). This represents
+a genuine boundary case rather than a model defect: Isolation Forest
+is tuned to isolate clearly extreme points efficiently, and borderline
+deviations require either more sensitive contamination tuning or a
+complementary statistical threshold rule as a safety net.
