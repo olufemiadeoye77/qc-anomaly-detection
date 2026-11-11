@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: qc-detector
+Version: 0.1.0
+Summary: QC anomaly detection for PKO/PKC lab samples
+Requires-Python: >=3.10
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: joblib
+Requires-Dist: openpyxl
