@@ -1,11 +1,10 @@
 """
-Main pipeline: loads QC data, trains the anomaly detector,
-evaluates on a held-out test set, and saves results.
+Main pipeline: loads QC data (LIMS Excel format), trains the anomaly
+detector, evaluates against the Pass/Fail label, and saves results.
 
 Run with: python run_pipeline.py
 """
 
-import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from qc_detector.data_loader import load_qc_data, get_feature_columns
@@ -13,16 +12,12 @@ from qc_detector.detector import QCAnomalyDetector
 from qc_detector.evaluator import evaluate_predictions
 
 # --- Config ---
-DATA_PATH = "data/qc_lab_samples.csv"
+DATA_PATH = "data/qc_lims_sample.xlsx"
 MODEL_OUTPUT_PATH = "models/isolation_forest_qc_final.pkl"
 RESULTS_OUTPUT_PATH = "reports/qc_pipeline_results.csv"
 TEST_SIZE = 0.3
 RANDOM_STATE = 42
 CONTAMINATION = 0.07
-
-# Known injected anomalies — only used for evaluation on synthetic data.
-# This will be removed/replaced once real LIMS data has no ground truth labels.
-INJECTED_ANOMALY_INDICES = [33, 52, 104, 147, 196, 202, 207, 209, 259, 295, 315, 321, 471, 475, 477]
 
 
 def main():
@@ -30,7 +25,7 @@ def main():
     df = load_qc_data(DATA_PATH)
     feature_cols = get_feature_columns()
 
-    df["is_true_anomaly"] = df.index.isin(INJECTED_ANOMALY_INDICES)
+    df["is_true_anomaly"] = df["pass_fail"] == "Fail"
 
     print("Splitting train/test...")
     train_df, test_df = train_test_split(
