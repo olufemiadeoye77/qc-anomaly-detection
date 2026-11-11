@@ -49,3 +49,11 @@ Final test set performance (contamination=0.07):
 - Precision: 57.1%
 - Recall: 100%
 - Flagged: 7 samples (4 true positives, 3 false positives)
+
+## Visualizations
+
+### QC Parameter Distributions
+![QC Distributions](reports/qc_distributions.png)
+
+### Anomaly Detection Results
+![Anomaly Scatter Plot](reports/anomaly_scatter.png)
