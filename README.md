@@ -11,20 +11,10 @@ a capstone on secure AI architecture for industrial operations.
 2. `scripts/explore_data.py` — exploratory analysis and distribution plots
 3. `scripts/train_anomaly_model.py` — trains an Isolation Forest model
 4. `scripts/evaluate_model.py` — evaluates flagged anomalies, produces scatter plot
-
-## Results (synthetic data, v1)
-
-- Precision: 93.3%
-- Recall: 93.3%
-- 14/15 injected anomalies correctly flagged
-- 1 missed anomaly, 1 additional legitimate low-end outlier caught
-
-## Next steps
-
-- Replace synthetic data with real LIMS export
-- Tune contamination parameter and feature set
-- Package as a reusable, importable module
-- Add a simple reporting/alerting layer
+5. `scripts/train_test_split_model.py` — honest evaluation using a held-out test set
+6. `scripts/investigate_miss.py` — root-cause investigation of a missed anomaly
+7. `scripts/tune_contamination.py` — contamination parameter tuning sweep
+8. `scripts/train_final_model.py` — trains the final selected model
 
 ## Key Finding: Borderline Anomaly Detection
 
@@ -57,3 +47,10 @@ Final test set performance (contamination=0.07):
 
 ### Anomaly Detection Results
 ![Anomaly Scatter Plot](reports/anomaly_scatter.png)
+
+## Next Steps
+
+- Replace synthetic data with real LIMS export
+- Package as a reusable, importable module
+- Add a simple reporting/alerting layer
+- Expand to additional QC parameters as needed
