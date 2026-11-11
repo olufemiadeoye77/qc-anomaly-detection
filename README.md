@@ -71,3 +71,33 @@ training.
 
 Note: pass/fail thresholds used here are placeholders pending final
 ISO 9001 spec limits from the plant's QA team.
+
+## Alerting Layer
+
+`scripts/run_alert_check.py` scans a batch of QC samples (matching
+the LIMS Excel format) using the trained model and prints/logs any
+flagged anomalies, with a recommendation for manual review.
+
+Usage:
+
+
+Note: for meaningful real-world use, this should be run only on
+newly collected samples the model has not seen during training —
+running it against the full training file (as in early testing)
+will include already-seen samples and overstate the flagged count.
+
+## Testing
+
+Unit tests cover `qc_detector/data_loader.py`, `detector.py`, and
+`evaluator.py`. Run with:
+
+
+## Project History
+
+Early milestones (`scripts/generate_sample_data.py`,
+`scripts/train_anomaly_model.py`, etc.) used a simplified synthetic
+CSV format for initial prototyping. The project has since
+standardized on the real LIMS Excel format
+(`data/qc_lims_sample.xlsx`) via `run_pipeline.py` and
+`qc_detector/`. Historical scripts are kept for reference but are
+no longer the primary pipeline.
