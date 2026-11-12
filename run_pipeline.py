@@ -7,6 +7,7 @@ Run with: python run_pipeline.py
 
 from sklearn.model_selection import train_test_split
 
+from qc_detector.audit_log import log_training_run
 from qc_detector.data_loader import load_qc_data, get_feature_columns
 from qc_detector.detector import QCAnomalyDetector
 from qc_detector.evaluator import evaluate_predictions
@@ -58,6 +59,7 @@ def main():
     test_df.to_csv(RESULTS_OUTPUT_PATH, index=False)
 
     print(f"\nModel saved -> {MODEL_OUTPUT_PATH}")
+    log_training_run(DATA_PATH, MODEL_OUTPUT_PATH, CONTAMINATION, results)
     print(f"Results saved -> {RESULTS_OUTPUT_PATH}")
 
 

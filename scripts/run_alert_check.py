@@ -11,6 +11,7 @@ import sys
 import os
 from datetime import datetime
 
+from qc_detector.audit_log import log_alert_check
 from qc_detector.data_loader import load_qc_data, get_feature_columns
 from qc_detector.detector import QCAnomalyDetector
 
@@ -60,6 +61,7 @@ def run_alert_check(data_path: str):
     with open(ALERT_LOG_PATH, "a") as f:
         f.write("\n".join(log_lines) + "\n")
 
+    log_alert_check(data_path, MODEL_PATH, len(df), len(flagged))
     print(f"\nAlert log updated -> {ALERT_LOG_PATH}")
 
 

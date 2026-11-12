@@ -18,3 +18,23 @@ Anomalies flagged: 15
   FLAGGED: S0114 | anomaly_score=-0.0044
   FLAGGED: S0191 | anomaly_score=-0.0026
 Recommend manual QC review before release.
+
+=== QC Alert Check: 2026-11-12 10:47:47 ===
+Samples checked: 200
+Anomalies flagged: 15
+  FLAGGED: S0009 | anomaly_score=-0.1390
+  FLAGGED: S0144 | anomaly_score=-0.1212
+  FLAGGED: S0155 | anomaly_score=-0.0963
+  FLAGGED: S0023 | anomaly_score=-0.0898
+  FLAGGED: S0178 | anomaly_score=-0.0884
+  FLAGGED: S0030 | anomaly_score=-0.0562
+  FLAGGED: S0095 | anomaly_score=-0.0370
+  FLAGGED: S0028 | anomaly_score=-0.0242
+  FLAGGED: S0035 | anomaly_score=-0.0210
+  FLAGGED: S0125 | anomaly_score=-0.0197
+  FLAGGED: S0146 | anomaly_score=-0.0119
+  FLAGGED: S0091 | anomaly_score=-0.0091
+  FLAGGED: S0064 | anomaly_score=-0.0054
+  FLAGGED: S0114 | anomaly_score=-0.0044
+  FLAGGED: S0191 | anomaly_score=-0.0026
+Recommend manual QC review before release.
