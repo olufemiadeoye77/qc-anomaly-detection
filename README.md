@@ -63,16 +63,19 @@ with a Codex/NIS-style quality threshold-based Pass/Fail label), the
 anomaly detector was evaluated against real quality-control outcomes
 rather than only synthetic injected anomalies.
 
-Result: 100% recall (every failed sample was flagged) and 80%
-precision (1 false alarm per 5 flags). This suggests statistical
-anomaly detection is a credible early-warning signal for quality
-specification failures, even without using the Pass/Fail label
-during training.
+Result: 100% recall (every failed sample was flagged) and 75%
+precision (1 false alarm per 4 flags), using Pass/Fail labels derived
+from the real Codex Alimentarius CXS 210-1999 refined-oil limits
+(FFA ≤ 0.3%, peroxide value ≤ 5 meq/kg — see
+[docs/quality_spec_reference.md](docs/quality_spec_reference.md)).
+This suggests statistical anomaly detection is a credible
+early-warning signal for quality specification failures, even
+without using the Pass/Fail label during training.
 
-Note: pass/fail thresholds used here are placeholders pending final
-Codex/NIS quality spec limits (see
-[docs/quality_spec_reference.md](docs/quality_spec_reference.md))
-confirmed by the plant's QA team.
+Status: thresholds are now based on the real Codex Alimentarius
+standard (resolved); confirmation against the plant's own production
+specification remains open — see
+[docs/quality_spec_reference.md](docs/quality_spec_reference.md).
 
 ## Governance, Security & Compliance
 
