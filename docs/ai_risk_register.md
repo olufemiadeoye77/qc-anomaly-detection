@@ -18,8 +18,8 @@ Rated **Medium** rather than Low or High because:
   always reviews flagged results before action is taken. No direct
   safety, financial, or irreversible impact from model error alone.
 - **Not Low:** Quality control directly relates to product safety and
-  regulatory compliance (ISO 9001). An undetected defect reaching
-  dispatch carries real business and reputational risk, even with
+regulatory compliance (Codex Alimentarius and NIS/SON edible oil
+standards). An undetected defect reaching dispatch carries real business and reputational risk, even with
   human review as a backstop (humans can also miss things the model
   should have flagged).
 
@@ -31,7 +31,7 @@ Rated **Medium** rather than Low or High because:
 - [x] Threat model documented (`docs/threat_model.md`)
 - [ ] Trained/validated on real plant data (pending — currently
   synthetic only)
-- [ ] Finalized ISO spec thresholds incorporated (pending QA sign-off)
+- [ ] Finalized Codex/NIS spec thresholds incorporated (pending QA sign-off)
 - [ ] Formal model owner assigned
 - [ ] Retraining/monitoring cadence formally scheduled
 - [ ] Access controls on model and training data files (pending)

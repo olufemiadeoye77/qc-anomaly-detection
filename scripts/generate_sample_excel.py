@@ -28,8 +28,9 @@ fail_idx = np.random.choice(n_samples, size=12, replace=False)
 df.loc[fail_idx, "FFA"] += np.random.uniform(0.15, 0.3, 12)
 df.loc[fail_idx, "PV"] += np.random.uniform(2, 4, 12)
 
-# Simple pass/fail logic based on plausible ISO-style thresholds
-# (placeholder thresholds — replace with your plant's actual spec limits)
+# Simple pass/fail logic based on plausible Codex/NIS-style thresholds
+# (placeholder thresholds — replace with your plant's actual spec limits
+# per docs/quality_spec_reference.md)
 df["pass_fail"] = np.where(
     (df["FFA"] <= 0.15) & (df["PV"] <= 3.0),
     "Pass",
