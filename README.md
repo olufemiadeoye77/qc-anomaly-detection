@@ -72,6 +72,29 @@ training.
 Note: pass/fail thresholds used here are placeholders pending final
 ISO 9001 spec limits from the plant's QA team.
 
+## Governance, Security & Compliance
+
+This project includes the governance and security artifacts expected
+for AI deployed in an industrial quality context:
+
+- [`docs/model_card.md`](docs/model_card.md) — model details, intended
+  use, known limitations
+- [`docs/ai_risk_register.md`](docs/ai_risk_register.md) — risk tier
+  classification and required controls
+- [`docs/threat_model.md`](docs/threat_model.md) — threats specific to
+  this pipeline (data poisoning, drift, unauthorized access, silent
+  failure, over-reliance) with mitigations
+- [`docs/network_segmentation.md`](docs/network_segmentation.md) —
+  current air-gapped architecture and target IT/OT segmentation if
+  automated
+
+Every training run and alert check is logged to
+`reports/audit_log.jsonl` with timestamps and SHA-256 hashes of the
+input data and model file, for traceability.
+
+This project is advisory only by design — it flags samples for human
+review and does not make autonomous release/reject decisions.
+
 ## Alerting Layer
 
 `scripts/run_alert_check.py` scans a batch of QC samples (matching
