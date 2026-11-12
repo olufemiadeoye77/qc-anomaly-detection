@@ -63,14 +63,21 @@ in this research pass. This should be obtained directly from SON or
 the plant's QA/regulatory affairs team before being used as a
 production threshold.
 
-## What Is Still Needed
+## Status
 
-This project's synthetic Pass/Fail logic remains a **placeholder**
-until the plant's QA team confirms:
+**Resolved (this phase):** this project now applies the real,
+published Codex Alimentarius CXS 210-1999 limits for refined oils
+(FFA ≤ 0.3% as oleic acid equivalent, derived from acid value ≤ 0.6
+mg KOH/g; peroxide value ≤ 5 meq active oxygen/kg) as its working
+Pass/Fail threshold, replacing the earlier arbitrary placeholder
+values. This is the internationally recognized standard for named
+vegetable oils and is a defensible basis for this prototype.
 
-1. Whether the plant follows Codex limits directly, the NIS standard
-   specific to palm kernel oil, or a stricter internal/contractual
-   specification
+**Still open (requires the plant's QA team, not resolvable here):**
+
+1. Whether the plant's actual production specification matches these
+   Codex limits exactly, follows the NIS standard instead, or applies
+   a stricter internal/contractual limit
 2. Exact limits for Colour, Saponification Value, Refractive Index,
    and Specific Gravity for PKO specifically (not reliably found in
    this research pass — these are often buyer-contract or
@@ -78,10 +85,10 @@ until the plant's QA team confirms:
 3. Whether limits differ for different product grades or export
    markets
 
-**This should be finalized and signed off by QA before any version of
-this model is used to inform real release decisions** — this remains
-true regardless of how good the model's statistical performance looks
-on synthetic data.
+Food-grade production decisions should always defer to the plant's
+own confirmed specification over a project prototype's assumptions —
+this remains true regardless of how good the model's statistical
+performance looks on synthetic data.
 
 ## Sources
 

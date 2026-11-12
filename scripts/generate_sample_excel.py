@@ -28,11 +28,19 @@ fail_idx = np.random.choice(n_samples, size=12, replace=False)
 df.loc[fail_idx, "FFA"] += np.random.uniform(0.15, 0.3, 12)
 df.loc[fail_idx, "PV"] += np.random.uniform(2, 4, 12)
 
-# Simple pass/fail logic based on plausible Codex/NIS-style thresholds
-# (placeholder thresholds — replace with your plant's actual spec limits
-# per docs/quality_spec_reference.md)
+# Pass/Fail logic based on the real, published Codex Alimentarius
+# CXS 210-1999 limit for refined oils (acid value <= 0.6 mg KOH/g,
+# approximated here as FFA <= 0.3% as oleic acid equivalent) and the
+# Codex refined-oil peroxide value limit (<= 5 meq active oxygen/kg).
+# See docs/quality_spec_reference.md for the full standard and
+# citation. These are the internationally recognized limits; the
+# plant's own QA team should confirm whether a stricter internal or
+# contractual specification applies in production.
+CODEX_FFA_MAX = 0.3   # % as oleic acid equivalent, derived from acid value <= 0.6
+CODEX_PV_MAX = 5.0     # meq active oxygen/kg, refined oils, CXS 210-1999
+
 df["pass_fail"] = np.where(
-    (df["FFA"] <= 0.15) & (df["PV"] <= 3.0),
+    (df["FFA"] <= CODEX_FFA_MAX) & (df["PV"] <= CODEX_PV_MAX),
     "Pass",
     "Fail"
 )
